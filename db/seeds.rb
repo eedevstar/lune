@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+puts "Importing movies..."
+MovieImporter.new('db/seeds/movies.csv').call
+
+puts "Importing reviews..."
+ReviewImporter.new('db/seeds/reviews.csv').call
+
+puts "Done!"
