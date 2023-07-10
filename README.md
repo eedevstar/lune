@@ -1,24 +1,29 @@
-# README
+# Lune - Assessment
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Requirements
 
-Things you may want to cover:
+1. Create a new application with Ruby on Rails
 
-* Ruby version
+2. Study the content of movies.csv and reviews.csv
 
-* System dependencies
+3. Define a database schema and add it to your application
 
-* Configuration
+4. Write an import task to import both CSV-files
 
-* Database creation
+5. Show an overview of all movies in your application
 
-* Database initialization
+6. Make a search form to search for an actor
 
-* How to run the test suite
+7. Sort the overview by average stars (rating) in an efficient way
 
-* Services (job queues, cache servers, search engines, etc.)
+**Design CSV importer/application for heavy data processing 
 
-* Deployment instructions
+## Implementation
 
-* ...
+- Add Devise Gem for User
+- Created Migrations for Movie & Review
+- Add movie_importer & review_importer file in services
+- Add import code in seeds.rb in db folder, and also import.rake in lib/tasks folder
+- Add dashboard view & reviews view page
+- Add Will_Pagination gem for Pagination
+- Add Rspec for testing
