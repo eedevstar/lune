@@ -1,2 +1,41 @@
-<h1>Dashboard#index</h1>
-<p>Find me in app/views/dashboard/index.html.erb</p>
+<h1>Movies Overview</h1>
+
+<%= form_with(url: dashboard_index_path, method: :get, local: true) do %>
+  <%= label_tag :actor, "Search by actor" %>
+  <%= text_field_tag :actor, params[:actor] %>
+  <%= submit_tag "Search" %>
+<% end %>
+<hr>
+<%
+  if @movies.present?
+%>
+  <table>
+    <tr>
+      <th>Movie</th>
+      <th>Actor</th>
+      <th>Country</th>
+      <th>Ratings</th>
+      <th>Reviews</th>
+    </tr>
+
+    <% @movies.each do |movie| %>
+      <tr>
+        <td><%= movie.title %></td>
+        <td><%= movie.actor %></td> 
+        <td><%= movie.country %></td>
+        <td><%= movie.average_stars %></td>
+        <td>
+          <% if movie.reviews.present? %>
+            <%= link_to "View Reviews", movie_reviews_path(movie) %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+<%
+  else
+%>
+  <h5>No movies found. Please try again.</h5>
+<%
+  end
+%>
